@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Донат — СЕРДЦЕ</title>
+<meta name="description" content="Привилегии и подарки для сервера СЕРДЦЕ: лягушки, аксолотли и кое-что из сундука. Без преимуществ в бою.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="transition.css">
+<link rel="stylesheet" href="frog.css">
+<link rel="stylesheet" href="donate.css">
+</head>
+<body class="page-donate" data-page="donate">
+
+<div class="reticle" aria-hidden="true"><i></i><i></i></div>
+
+<header class="nav">
+  <a class="brand" href="index.html">
+    <span class="brand-cube" aria-hidden="true"></span>
+    <span>‹СЕРДЦЕ›</span>
+  </a>
+  <nav aria-label="Основная навигация">
+    <a href="index.html#modes">Режимы</a>
+    <a href="index.html#rules">Правила</a>
+    <a href="index.html#join">Как зайти</a>
+    <a href="donate.html" aria-current="page">Донат</a>
+  </nav>
+  <div class="status" title="IP: play.serdce.mc">
+    <span class="dot" aria-hidden="true"></span>
+    <span data-online>—</span> в игре
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ГЕРОЙ ДОНАТА -->
+  <section class="dhero">
+    <div class="dhero-glow" aria-hidden="true"></div>
+    <canvas id="swamp" aria-hidden="true"></canvas>
+
+    <div class="dhero-inner">
+      <h1 class="dhero-title" data-anim="up" style="--d:.1s">Донат,<br>который<br><span>квакает</span></h1>
+      <p class="dhero-sub" data-anim="up" style="--d:.25s">
+        Привилегии для уюта, коллекций и друзей. В бою все равны:
+        ни одного лишнего сердца на арене, обещаем.
+      </p>
+      <div class="hero-actions" data-anim="up" style="--d:.4s">
+        <a class="btn btn-solid" href="#ranks">Выбрать привилегию</a>
+        <a class="btn btn-line" href="#frogs">Забрать лягушку</a>
+      </div>
+    </div>
+
+    <div class="mascot" id="mascotStage" tabindex="0" role="button" aria-label="Пиксельная лягушка из Майнкрафта на кувшинке. Нажмите, чтобы она прыгнула и квакнула">
+      <div class="pad" aria-hidden="true"></div>
+      <div class="mc-frog mc-frog-xl" data-variant="temperate" data-flip aria-hidden="true"></div>
+      <div class="codepoint">прыгни</div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Лягушки</span><b>✦</b><span>Аксолотли</span><b>✦</b><span>Без P2W</span><b>✦</b><span>Подарок другу</span><b>✦</b><span>Тема оформления чата</span><b>✦</b>
+      <span>Лягушки</span><b>✦</b><span>Аксолотли</span><b>✦</b><span>Без P2W</span><b>✦</b><span>Подарок другу</span><b>✦</b><span>Тема оформления чата</span><b>✦</b>
+    </div>
+  </div>
+
+  <!-- ЛЯГУШКИ -->
+  <section id="frogs" class="section frogs">
+    <header class="section-head">
+      <h2 data-reveal>Лягушки на любой вкус</h2>
+      <p data-reveal style="--d:.1s">Три биома — три лягушки, как в игре, плюс золотая пасхалка. Нажми на одну, чтобы услышать, как она квакает.</p>
+    </header>
+
+    <div class="frog-grid">
+      <button class="frog-card" data-variant="temperate" data-frog data-croak="low" data-reveal>
+        <div class="frog-scene" aria-hidden="true">
+          <div class="mc-frog" data-variant="temperate"></div>
+          <div class="mc-pad" aria-hidden="true"></div>
+        </div>
+        <h3>Умеренная</h3>
+        <p>Спавнится в болоте на кувшинках. Бронзовый окрас, ест слаг и тихо хрипит в дождь.</p>
+        <span class="frog-tag">питомец</span>
+      </button>
+
+      <button class="frog-card" data-variant="warm" data-frog data-croak="mid" data-reveal style="--d:.1s">
+        <div class="frog-scene" aria-hidden="true">
+          <div class="mc-frog" data-variant="warm"></div>
+          <div class="mc-pad" aria-hidden="true"></div>
+        </div>
+        <h3>Тёплая</h3>
+        <p>Мангровые болота. Оранжевая, с тёмными полосами, любит магму и тёплый песчаный берег.</p>
+        <span class="frog-tag">питомец</span>
+      </button>
+
+      <button class="frog-card" data-variant="cold" data-frog data-croak="high" data-reveal style="--d:.2s">
+        <div class="frog-scene" aria-hidden="true">
+          <div class="mc-frog" data-variant="cold"></div>
+          <div class="mc-pad" aria-hidden="true"></div>
+        </div>
+        <h3>Холодная</h3>
+        <p>Среди глубокого снега. Квакает как стеклянный колокольчик, оставляет за собой снежинки.</p>
+        <span class="frog-tag">питомец</span>
+      </button>
+
+      <button class="frog-card" data-variant="gold" data-frog data-croak="gold" data-reveal style="--d:.3s">
+        <div class="frog-scene" aria-hidden="true">
+          <div class="mc-frog" data-variant="gold"></div>
+          <div class="mc-pad" aria-hidden="true"></div>
+        </div>
+        <h3>Золотая</h3>
+        <p>Не спавнится сама. Забирай — блестит в инвентаре и на кувшинке в вашем хубе.</p>
+        <span class="frog-tag tag-gold">реликвия</span>
+      </button>
+    </div>
+
+    <p class="frog-caption" data-reveal>Нет лягушки нужного цвета? Возьми аксолотля — они тоже из болота.</p>
+  </section>
+
+  <!-- ПРИВИЛЕГИИ -->
+  <section id="ranks" class="section ranks">
+    <header class="section-head">
+      <h2 data-reveal>Привилегии</h2>
+      <p data-reveal style="--d:.1s">Подписка на 30 дней, продлевается сама. Уже купил однажды — второй раз не заплатишь.</p>
+    </header>
+
+    <div class="membership" data-reveal>
+      <div class="membership-left">
+        <span class="membership-label">Сейчас у тебя</span>
+        <span class="membership-rank" data-rank>Головастик</span>
+        <span class="membership-note" data-rank-note>Базовый доступ. Можно выбрать привилегию ниже.</span>
+      </div>
+      <div class="membership-progress" aria-hidden="true">
+        <div class="membership-bar"><i data-rank-bar style="width: 18%"></i></div>
+        <span class="membership-step" data-rank-step>до Аксолотля осталось 150 ₽/мес</span>
+      </div>
+    </div>
+
+    <div class="rank-grid">
+      <article class="rank" data-rank-card="Головастик" data-price="0" data-accent="#8fd3e8" data-reveal>
+        <div class="rank-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="12" y="6" width="8" height="4"/><rect x="8" y="10" width="16" height="12"/><rect x="4" y="16" width="4" height="4"/><rect x="24" y="16" width="4" height="4"/><rect x="10" y="12" width="3" height="3" fill="#0b1024"/><rect x="19" y="12" width="3" height="3" fill="#0b1024"/><rect x="12" y="22" width="3" height="4"/><rect x="17" y="22" width="3" height="4"/></svg>
+        </div>
+        <h3>Головастик</h3>
+        <div class="price">Бесплатно</div>
+        <ul class="perks">
+          <li>Вход на сервер</li>
+          <li>Клан и приват</li>
+          <li>Одна лягушка на выбор</li>
+        </ul>
+        <button class="btn btn-line rank-btn" data-pick>Оставить эту</button>
+      </article>
+
+      <article class="rank" data-rank-card="Аксолотль" data-price="150" data-accent="#f08fc4" data-reveal style="--d:.08s">
+        <div class="rank-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="12" y="8" width="8" height="4"/><rect x="9" y="12" width="14" height="10"/><rect x="3" y="10" width="5" height="3"/><rect x="24" y="10" width="5" height="3"/><rect x="3" y="16" width="5" height="3"/><rect x="24" y="16" width="5" height="3"/><rect x="11" y="14" width="3" height="3" fill="#0b1024"/><rect x="18" y="14" width="3" height="3" fill="#0b1024"/><rect x="12" y="22" width="3" height="3"/><rect x="17" y="22" width="3" height="3"/></svg>
+        </div>
+        <h3>Аксолотль</h3>
+        <div class="price">150 <small>₽/мес</small></div>
+        <ul class="perks">
+          <li>Всё из «Головастика»</li>
+          <li>Цветной ник в чате</li>
+          <li>Свой префикс</li>
+          <li>Питомец-лягушка</li>
+        </ul>
+        <button class="btn btn-line rank-btn" data-pick>Выбрать</button>
+      </article>
+
+      <article class="rank rank-featured" data-rank-card="Жаба" data-price="390" data-accent="#d6f24a" data-reveal style="--d:.16s">
+        <span class="rank-badge">выбор игроков</span>
+        <div class="rank-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="10" y="4" width="4" height="4"/><rect x="18" y="4" width="4" height="4"/><rect x="6" y="8" width="20" height="14"/><rect x="2" y="18" width="4" height="4"/><rect x="26" y="18" width="4" height="4"/><rect x="11" y="13" width="3" height="3" fill="#0b1024"/><rect x="18" y="13" width="3" height="3" fill="#0b1024"/><rect x="8" y="22" width="4" height="4"/><rect x="20" y="22" width="4" height="4"/><rect x="14" y="10" width="4" height="1" fill="#c9e542"/></svg>
+        </div>
+        <h3>Жаба</h3>
+        <div class="price">390 <small>₽/мес</small></div>
+        <ul class="perks">
+          <li>Всё из «Аксолотля»</li>
+          <li>Золотая лягушка</li>
+          <li>Тема чата «Болото»</li>
+          <li>/fly в хубах и на спавне</li>
+          <li>Приоритет в очереди</li>
+        </ul>
+        <button class="btn btn-solid rank-btn" data-pick>Выбрать</button>
+      </article>
+
+      <article class="rank" data-rank-card="Стрекоза" data-price="790" data-accent="#ffb65e" data-reveal style="--d:.24s">
+        <div class="rank-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="15" y="8" width="2" height="16"/><rect x="13" y="4" width="6" height="4"/><rect x="4" y="9" width="10" height="1"/><rect x="18" y="9" width="10" height="1"/><rect x="4" y="14" width="10" height="1"/><rect x="18" y="14" width="10" height="1"/><rect x="14" y="12" width="4" height="3"/></svg>
+        </div>
+        <h3>Стрекоза</h3>
+        <div class="price">790 <small>₽/мес</small></div>
+        <ul class="perks">
+          <li>Всё из «Жабы»</li>
+          <li>Ключ на свой ивент</li>
+          <li>Место на арене по желанию</li>
+          <li>Функция «подарок другу»</li>
+          <li>Голос в чате разработки</li>
+        </ul>
+        <button class="btn btn-line rank-btn" data-pick>Выбрать</button>
+      </article>
+    </div>
+    <p class="rank-note" data-reveal>Привилегии не дают преимуществ в бою, ресурсов или доступа к чужим приватам. Только уют и косметика.</p>
+  </section>
+
+  <!-- СУНДУК ПОДАРКОВ -->
+  <section id="chest" class="section chest-section">
+    <header class="section-head">
+      <h2 data-reveal>Сундук с приколами</h2>
+      <p data-reveal style="--d:.1s">Тяни раз в сутки бесплатно. Внутри — мелочи, иногда лягушка, иногда ничего. Как в жизни.</p>
+    </header>
+
+    <div class="chest-wrap" data-reveal>
+      <button class="chest" id="chestBtn" aria-describedby="chestResult">
+        <svg class="chest-art" viewBox="0 0 160 140" aria-hidden="true" shape-rendering="crispEdges">
+          <rect x="20" y="20" width="120" height="50" fill="#a8722f"/>
+          <rect x="20" y="20" width="120" height="10" fill="#c48a3d"/>
+          <rect x="20" y="60" width="120" height="12" fill="#6e451c"/>
+          <rect x="20" y="72" width="120" height="50" fill="#a8722f"/>
+          <rect x="20" y="112" width="120" height="10" fill="#5c3a17"/>
+          <rect x="32" y="20" width="8" height="102" fill="#7d5424"/>
+          <rect x="120" y="20" width="8" height="102" fill="#7d5424"/>
+          <rect x="72" y="56" width="16" height="22" fill="#e8c67a"/>
+          <rect x="77" y="62" width="6" height="9" fill="#3a260f"/>
+        </svg>
+        <span class="chest-hint">Открыть · бесплатно раз в день</span>
+      </button>
+      <div class="chest-out" id="chestResult" role="status" aria-live="polite">
+        <p class="chest-idle">Сегодня ещё не открывали. Сундук подрагивает.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК ОПЛАТИТЬ -->
+  <section class="section faq">
+    <header class="section-head">
+      <h2 data-reveal>Несколько вопросов</h2>
+      <p data-reveal style="--d:.1s">Коротко о том, что спрашивают чаще всего.</p>
+    </header>
+    <details data-reveal>
+      <summary>Куда придут деньги?</summary>
+      <p>Оплата проходит на внешнем сервисе, сервер не хранит данные карт. Привилегия выдаётся на ник, который вы указали при покупке, в течение двух минут.</p>
+    </details>
+    <details data-reveal style="--d:.06s">
+      <summary>Привилегия даёт преимущества в бою?</summary>
+      <p>Нет. Только косметика, уют и удобства вне PvP: цветной ник, темы чата, питомец. Предметы и брони за деньги не продаются.</p>
+    </details>
+    <details data-reveal style="--d:.12s">
+      <summary>Можно подарить другу?</summary>
+      <p>Да, начиная с привилегии «Стрекоза». Укажите его ник при покупке — подарок прилетит в его инвентарь.</p>
+    </details>
+    <details data-reveal style="--d:.18s">
+      <summary>Оплатил, но не пришло. Что делать?</summary>
+      <p>Напишите в дискорд канал #донат, приложите чек и ник. Отвечаем в течение часа и всё поправим.</p>
+    </details>
+  </section>
+
+  <section class="final-cta">
+    <div class="final-frogs" aria-hidden="true">
+      <div class="mc-frog hop" data-variant="temperate"></div>
+      <div class="mc-frog hop" data-variant="warm"></div>
+      <div class="mc-frog hop" data-variant="cold"></div>
+    </div>
+    <h2 data-reveal>Готов квакать вместе с нами?</h2>
+    <p data-reveal style="--d:.1s">12 000 игроков уже в болоте. Свободных слотов ещё полно.</p>
+    <div class="hero-actions" data-reveal style="--d:.2s">
+      <a class="btn btn-solid" href="index.html#join">Начать играть</a>
+      <a class="btn btn-line" href="#ranks">К привилегиям</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div>‹СЕРДЦЕ› © 2026. Не связан с Mojang.</div>
+  <div class="foot-links">
+    <a href="#ranks">Привилегии</a>
+    <a href="#">Discord</a>
+    <a href="#">Telegram</a>
+    <a href="index.html">На главную</a>
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite">IP скопирован</div>
+
+<script src="vendor/shot.js"></script>
+<script src="frog.js"></script>
+<script src="main.js"></script>
+<script src="donate.js"></script>
+<script src="transition.js"></script>
+</body>
+</html>

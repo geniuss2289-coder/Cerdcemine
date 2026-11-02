@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>СЕРДЦЕ — сервер Minecraft</title>
+<meta name="description" content="Майнкрафт-сервер с нулевым лагом: выживание, войны кланов, экономика и модерация 24/7. Заходи в игру за два клика.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="transition.css">
+</head>
+<body data-page="home">
+
+<!-- курсор-прицел -->
+<div class="reticle" aria-hidden="true"><i></i><i></i></div>
+
+<header class="nav">
+  <a class="brand" href="#top">
+    <span class="brand-cube" aria-hidden="true"></span>
+    <span>‹СЕРДЦЕ›</span>
+  </a>
+  <nav aria-label="Основная навигация">
+    <a href="#modes">Режимы</a>
+    <a href="#rules">Правила</a>
+    <a href="#join">Как зайти</a>
+    <a class="nav-donate" href="donate.html">
+      <span class="nav-donate-frog" aria-hidden="true">
+        <svg viewBox="0 0 11 9" shape-rendering="crispEdges">
+          <path fill="#36502c" d="M1 1h2v1H1zM8 1h2v1H8z"/>
+          <path fill="#a2bd60" d="M1 2h8v1H1zM0 4h8v2H0z"/>
+          <path fill="#8c5a38" d="M6 4h4v3H6z"/>
+          <path fill="#f4efe2" d="M2 2h1v1H2zM8 2h1v1H8z"/>
+          <path fill="#161c0e" d="M3 2h1v1H3zM9 2h1v1H9z"/>
+          <path fill="#161c0e" d="M7 5h2v1H7z"/>
+          <path fill="#36502c" d="M3 6h2v1H3zM0 6h2v1H0z"/>
+          <path fill="#5c3b24" d="M1 7h1v2H1zM3 7h1v2H3zM8 7h1v2H8z"/>
+        </svg>
+      </span>
+      Донат
+    </a>
+  </nav>
+  <div class="status" title="IP: play.serdce.mc">
+    <span class="dot" aria-hidden="true"></span>
+    <span data-online>—</span> в игре
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ГЕРОЙ: пиксельный мир над обрывом -->
+  <section class="hero">
+    <canvas id="world" aria-hidden="true"></canvas>
+    <div class="hero-fog" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="line" style="--i:0">Мир</span>
+        <span class="line" style="--i:1">начинается</span>
+        <span class="line" style="--i:2">с одного</span>
+        <span class="line" style="--i:3">блока</span>
+      </h1>
+
+      <div class="ip-row" data-copy="play.serdce.mc" tabindex="0" role="button" aria-label="Скопировать IP-адрес сервера">
+        <span class="ip-label">IP</span>
+        <span class="ip-value">play.serdce.mc</span>
+        <span class="ip-copy">скопировать</span>
+      </div>
+
+      <p class="hero-sub" data-anim="up" style="--d:.9s">
+        Выживание без читеров, экономика без инфляции, модерация без перерыва.
+        Java 1.20 – 1.21 и Bedrock.
+      </p>
+
+      <div class="hero-actions" data-anim="up" style="--d:1.05s">
+        <a class="btn btn-solid" href="#join">Играть сейчас</a>
+        <a class="btn btn-line" href="donate.html" data-frog-link>Донат и лягушки</a>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Прокрути, чтобы спуститься шахтой</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- БЕГУЩАЯ СТРОКА -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Выживание</span><b>✦</b><span>Войны кланов</span><b>✦</b><span>Своя экономика</span><b>✦</b><span>Античит Sentinel</span><b>✦</b><span>Ивенты каждые выходные</span><b>✦</b>
+      <span>Выживание</span><b>✦</b><span>Войны кланов</span><b>✦</b><span>Своя экономика</span><b>✦</b><span>Античит Sentinel</span><b>✦</b><span>Ивенты каждые выходные</span><b>✦</b>
+    </div>
+  </div>
+
+  <!-- РЕЖИМЫ: изометрические тайлы -->
+  <section id="modes" class="section modes">
+    <header class="section-head">
+      <h2 data-reveal>Что строим вместе</h2>
+      <p data-reveal style="--d:.1s">Два постоянных мира на одном IP. Начни с выживания — кланы и экономика там же.</p>
+    </header>
+
+    <div class="modes-grid">
+      <article class="mode" data-reveal>
+        <div class="iso" aria-hidden="true"><div class="iso-top"></div><div class="iso-left"></div><div class="iso-right"></div></div>
+        <h3>Выживание</h3>
+        <p>Ванильный майнкрафт с приватами, кланами и живой экономикой. Защищай город, воюй за территорию, строй, что захочешь.</p>
+        <ul class="chips"><li>кланы</li><li>приваты</li><li>экономика</li></ul>
+      </article>
+
+      <article class="mode" data-reveal style="--d:.12s">
+        <div class="iso iso-sand" aria-hidden="true"><div class="iso-top"></div><div class="iso-left"></div><div class="iso-right"></div></div>
+        <h3>Арена</h3>
+        <p>Отдельный мир для мини-игр: дуэли 1v1, командные бои и погоня за сокровищами. Полный инвентарь выдаётся сразу — прокачивай только скилл.</p>
+        <ul class="chips"><li>дуэли</li><li>команды</li><li>рейтинг</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ЦИФРЫ -->
+  <section class="stats" aria-label="Сервер в цифрах">
+    <div class="stat" data-reveal>
+      <div class="stat-num" data-count="20000" data-format="space" data-suffix="">0</div>
+      <div class="stat-cap">слотов на сервере</div>
+    </div>
+    <div class="stat" data-reveal style="--d:.1s">
+      <div class="stat-num" data-count="19" data-suffix=" мс">0</div>
+      <div class="stat-cap">средний пинг из РФ и СНГ</div>
+    </div>
+    <div class="stat" data-reveal style="--d:.2s">
+      <div class="stat-num" data-count="24" data-suffix="/7">0</div>
+      <div class="stat-cap">модераторы в сети</div>
+    </div>
+    <div class="stat" data-reveal style="--d:.3s">
+      <div class="stat-num" data-count="0" data-suffix="">0</div>
+      <div class="stat-cap">платных преимуществ в бою</div>
+    </div>
+  </section>
+
+  <!-- ПРАВИЛА: переключатель -->
+  <section id="rules" class="section rules">
+    <header class="section-head">
+      <h2 data-reveal>Правила без сносок</h2>
+      <p data-reveal style="--d:.1s">Четыре пункта, которые знают все на сервере. Нажми на один — расскажем, что делать и что бывает за нарушение.</p>
+    </header>
+
+    <div class="rule-layout">
+      <div class="rule-list" role="tablist" aria-orientation="vertical">
+        <button class="rule" role="tab" aria-selected="true" aria-controls="rp-1" id="rt-1">
+          <span class="rule-no">01</span><span class="rule-t">Уважай других</span>
+        </button>
+        <button class="rule" role="tab" aria-selected="false" aria-controls="rp-2" id="rt-2" tabindex="-1">
+          <span class="rule-no">02</span><span class="rule-t">Никаких читов и сторонних модов</span>
+        </button>
+        <button class="rule" role="tab" aria-selected="false" aria-controls="rp-3" id="rt-3" tabindex="-1">
+          <span class="rule-no">03</span><span class="rule-t">Не гриферь и не ломай чужие приваты</span>
+        </button>
+        <button class="rule" role="tab" aria-selected="false" aria-controls="rp-4" id="rt-4" tabindex="-1">
+          <span class="rule-no">04</span><span class="rule-t">Не продавай и не покупай за реальные деньги</span>
+        </button>
+      </div>
+
+      <div class="rule-panels">
+        <div class="rule-panel is-active" role="tabpanel" id="rp-1" aria-labelledby="rt-1">
+          <p>Никто не должен читать оскорбления в общем чате. Спорить, торговаться и договариваться — да. Унижать — нет.</p>
+          <dl>
+            <dt>Что делать</dt><dd>Пожаловаться через /report ник и скриншот чата.</dd>
+            <dt>Наказание</dt><dd>Мут на 1 час за первое нарушение, бан на 3 дня — за повторное.</dd>
+          </dl>
+        </div>
+        <div class="rule-panel" role="tabpanel" id="rp-2" aria-labelledby="rt-2" hidden>
+          <p>Античит Sentinel ловит киллауру, автокликер и X-Ray автоматически. Разрешены только миникарта без пещер и оптимизаторы вроде Sodium.</p>
+          <dl>
+            <dt>Что делать</dt><dd>Сомневаешься в моде — проверь список в дискорде #mods.</dd>
+            <dt>Наказание</dt><dd>Сброс инвентаря и бан на 30 дней, без возможности выкупа.</dd>
+          </dl>
+        </div>
+        <div class="rule-panel" role="tabpanel" id="rp-3" aria-labelledby="rt-3" hidden>
+          <p>Приват ставится командой /rg claim вокруг дома. Всё, что вне привата, — общая земля: там можно строить и ломать.</p>
+          <dl>
+            <dt>Что делать</dt><dd>Обнаружил взлом привата — /report grif и фото координат.</dd>
+            <dt>Наказание</dt><dd>Возврат ресурсов постройки и бан от 7 дней.</dd>
+          </dl>
+        </div>
+        <div class="rule-panel" role="tabpanel" id="rp-4" aria-labelledby="rt-4" hidden>
+          <p>Внутриигровая валюта — только внутренние монеты. Продажа аккаунтов, алмазов и привилегий за деньги запрещена в обоих направлениях.</p>
+          <dl>
+            <dt>Что делать</dt><dd>Обмен вещами между игроками — всегда через /trade.</dd>
+            <dt>Наказание</dt><dd>Изъятие предметов и бессрочный бан при попытке продажи.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК ЗАЙТИ -->
+  <section id="join" class="section join">
+    <header class="section-head">
+      <h2 data-reveal>От скачивания до первого блока</h2>
+      <p data-reveal style="--d:.1s">Три шага. Если что-то не вышло — напиши в дискорд, поможем.</p>
+    </header>
+
+    <ol class="steps">
+      <li data-reveal>
+        <span class="step-no">Шаг 1</span>
+        <h3>Открой Java Edition 1.21</h3>
+        <p>Подойдёт любой лицензионный и нелицензионный клиент на 1.20+. Bedrock-версия тоже работает по тому же адресу.</p>
+      </li>
+      <li data-reveal style="--d:.12s">
+        <span class="step-no">Шаг 2</span>
+        <h3>Добавь сервер по IP</h3>
+        <p>Меню «Сетевая игра» → «Добавить сервер» → впиши <code>play.serdce.mc</code>. Пинг должен быть зелёным.</p>
+      </li>
+      <li data-reveal style="--d:.24s">
+        <span class="step-no">Шаг 3</span>
+        <h3>Заходи и читай /help</h3>
+        <p>Новичкам выдаётся стартовый набор и 500 монет. Всё остальное — в игре.</p>
+      </li>
+    </ol>
+
+    <div class="join-cta" data-reveal>
+      <code class="ip-big">play.serdce.mc</code>
+      <button class="btn btn-solid" data-copy="play.serdce.mc">Скопировать IP</button>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div>‹СЕРДЦЕ› © 2026. Не связан с Mojang.</div>
+  <div class="foot-links">
+    <a href="donate.html" data-frog-link>Донат</a>
+    <a href="#">Discord</a>
+    <a href="#">Telegram</a>
+    <a href="#">Карта мира</a>
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite">IP скопирован</div>
+
+<script src="vendor/shot.js"></script>
+<script src="main.js"></script>
+<script src="transition.js"></script>
+</body>
+</html>

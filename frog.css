@@ -1,0 +1,118 @@
+/* ===========================================================
+   ЛЯГУШКА КАК В МАЙНКРАФТЕ
+   Сетка 11 × 9 «пикселей» модели frog. Каждая клетка — грань
+   блока 3D-модели: B — верх, T — фигурный верх-«макушка»,
+   F — передняя грань, L/R — бока. Поэтому лягушка объёмная,
+   как в игре, а не плоский кружок.
+   Цвета — палитры frog_temperate / warm / cold + золотая пасхалка.
+   =========================================================== */
+
+.mc-frog {
+  --px: clamp(3px, 0.9vw, 9px);
+  --base: #8fae4b;
+  --shade: #5f7a2c;
+  --light: #a9c45e;
+  --spot: #2f451f;
+  --belly: #cfd79b;
+  --mouth: #1a200f;
+  --eye: #f4efe2;
+  --pupil: #12160a;
+  --feet: #7a4b2e;
+  --feet-dark: #4d2e1b;
+  position: relative;
+  width: calc(11 * var(--px));
+  height: calc(9 * var(--px));
+  image-rendering: pixelated;
+}
+.mc-frog > div {
+  position: absolute;
+  display: block;
+  width: calc(var(--px) - 1px);
+  height: calc(var(--px) - 1px);
+  left: 0;
+  top: 0;
+}
+.mc-frog-xl { --px: clamp(7px, 1.45vw, 15px); }
+
+/* биомы */
+[data-variant="temperate"] { --base: #8fae4b; --shade: #5f7a2c; --light: #a9c45e; --spot: #2f451f; --belly: #cfd79b; }
+[data-variant="warm"] {
+  --base: #c66b3a; --shade: #8c4620; --light: #dc8650; --spot: #43240f;
+  --belly: #edc69d; --feet: #6e3f22; --feet-dark: #442510;
+}
+[data-variant="cold"] {
+  --base: #6f8c51; --shade: #4b6236; --light: #8ea96a; --spot: #2b3d20;
+  --belly: #dde6cd; --feet: #6f6d5e; --feet-dark: #454336;
+  --eye: #f7fdff; --pupil: #20303a;
+}
+[data-variant="gold"] {
+  --base: #e5bb52; --shade: #b88e2d; --light: #f8db82; --spot: #7a5615;
+  --belly: #fdefc8; --feet: #c79a35; --feet-dark: #8a6420;
+}
+
+/* стороны пикселя — как в блоках Minecraft */
+.px-b { background: var(--base); }        /* верх */
+.px-t { background: var(--light); }       /* макушка */
+.px-f { background: var(--base); box-shadow: inset 0 calc(var(--px) * -.28) 0 var(--shade); } /* перед */
+.px-l { background: var(--shade); }       /* левый бок */
+.px-r { background: var(--shade); }       /* правый бок */
+.px-s { background: var(--spot); }
+.px-e { background: var(--eye); }
+.px-p { background: var(--pupil); }
+.px-m { background: var(--mouth); }
+.px-belly { background: var(--belly); }
+.px-feet { background: var(--feet); box-shadow: inset 0 calc(var(--px) * -.3) 0 var(--feet-dark); }
+
+/* глаза моргают по очереди группой */
+.mc-frog .px-e { animation: mc-frog-blink 5.2s infinite; }
+@keyframes mc-frog-blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  93%, 95% { transform: scaleY(.12); }
+}
+
+/* дыхание */
+.mc-frog > div { animation: mc-frog-breathe 3.4s ease-in-out infinite; }
+.mc-frog > div:nth-child(3n) { animation-delay: -.2s; }
+@keyframes mc-frog-breathe {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 calc(var(--px) * -.06); }
+}
+
+/* прыжок с приседанием */
+.mc-frog.is-jump > div { animation: mc-frog-squat .18s ease-out; }
+.mc-frog.is-jump { animation: mc-frog-jump .95s cubic-bezier(.3,.7,.4,1); }
+@keyframes mc-frog-jump {
+  0% { transform: translateY(0) scale(1, 1); }
+  18% { transform: translateY(0) scale(1.06, .9); }
+  40% { transform: translateY(-70%) scale(.96, 1.04); }
+  62% { transform: translateY(0) scale(1.12, .86); }
+  74% { transform: translateY(-14%) scale(1, 1); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+@keyframes mc-frog-squat {
+  from { translate: 0 0; }
+  to { translate: 0 calc(var(--px) * .2); }
+}
+
+/* кувшинка */
+.mc-pad {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  translate: -50% 0;
+  width: calc(15 * var(--px));
+  height: calc(4.6 * var(--px));
+  background: #2f5836;
+  box-shadow: inset calc(var(--px) * -.5) calc(var(--px) * -.6) 0 #24472b;
+  border-radius: 2px;
+  clip-path: polygon(
+    50% 0%, 68% 2%, 86% 10%, 96% 24%, 100% 42%, 98% 62%, 90% 80%,
+    76% 93%, 60% 100%, 42% 99%, 26% 92%, 12% 80%, 3% 62%, 0% 42%,
+    6% 20%, 20% 7%, 36% 1%, 44% 8%, 50% 14%, 56% 8%
+  );
+  z-index: -1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-frog, .mc-frog > div, .mc-frog .px-e { animation: none !important; }
+}
